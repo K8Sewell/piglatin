@@ -1,6 +1,6 @@
 //piglatingoof modified and fixed (mainly rearranged)
 
-var userText = "Now you can speak pig latin!"
+var userText = "Now you can speak pig latin quickly!"
 
 // -------------------------------------------------------------- SUB FUNCTIONS
 //split a paragraph so individual words are array items
@@ -25,7 +25,7 @@ function pigify(w) {
     if(checkVowel( w.charAt(0)) ) {
        //run the rule for a word that starts w a vowel
        return `${w}-way`
-    }
+   }
 
     // split each word into arrays
     var letters = w.split('')
@@ -44,6 +44,15 @@ function pigify(w) {
     }
     // store the index # where the first vowel occurs in array
     var spliceAt = letters.findIndex(isAVowel)
+
+    // qu returning the u too
+    if(w.charAt(0) === "q") {
+        var spliceQ = letters.splice(2)
+        letters.push("a", "y")
+        var piggy1 = spliceQ.join("")
+        var piggy2 = letters.join("")
+        return pigified = `${piggy1}-${piggy2}`
+    }
 
     //!---UNCOMMENT THE NEXT 3 CONSOLE.LOGS BELOW TO SHOW splice method
     // console.log("spliced at [i] of first vowel-1: ", spliceAt) // <-------
@@ -81,11 +90,7 @@ function translate(text, splitterFunc) {
     // console.log(pigLatinArr)
     console.log(":::CONCAT & JOIN BACK INTO STRING:::")
     return pigLatin = pigLatinArr.join(" ")
-    console.log(pigLatin)
+    // console.log(pigLatin)
 }
-
-//something about qu returning the u too (check indexOf)
-//function that creates new array of pigified words with .push() into []
-//function that joins the array into a string with .join()
 
 console.log(translate(userText, splitter));
