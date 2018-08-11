@@ -1,39 +1,87 @@
 body {
- display: grid;
- grid-template-columns: 75% 25%;
- grid-template-rows: 10vw 30vw 10vw;
- grid-gap: 1em;
-}
+    margin: 40px;
+  }
+  
+  .sidebar {
+          grid-area: sidebar;
+      }
+  
+      .content {
+          grid-area: content;
+      }
+  
+      .header {
+          grid-area: header;
+      }
+  
+      .footer {
+          grid-area: footer;
+      }
+  
+      .wrapper {
+          background-color: #fff;
+          color: #444;
+      }
+  
+    .wrapper {
+      display: grid;
+      grid-gap: 1em;
+      grid-template-areas:
+       "header"
+       "sidebar"
+       "content"
+       "footer"
+    }
 
-header,
-footer {
- grid-column: 1 / span 2;
-}
+    #pigImage {
+        height: 800px;
+    }
 
-img {
-  margin:10px;
-}
-body {
- margin: 0 auto;
- max-width: 56em;
- padding: 1em 0;
-}
-
-header {
- background: #FFF;
- display: flex;
- align-items: center;
- justify-content: center;
- margin:10px;
- padding:10px;
-}
-
-
-main,
-aside,
-footer {
- background: #eaeaea;
- display: flex;
- align-items: center;
- justify-content: center;
-}
+    #butcherPig {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+  
+      @media only screen and (min-width: 500px)  {
+      .wrapper {
+          grid-template-columns: 40% auto;
+          grid-template-areas:
+            "header   header"
+            "sidebar  content"
+            "footer   footer";
+      }
+      }
+  
+      @media only screen and (min-width: 600px)   {
+          .wrapper {
+        grid-gap: 20px;
+              grid-template-columns: 40% auto;
+              grid-template-areas:
+        "header  header"
+              "sidebar content"
+              "footer  footer";
+              max-width: 1400px;
+          }
+      }
+      
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 150%; 
+  }
+  
+.header {
+    background-color: #FFF;
+  }
+  
+  
+.footer {
+    background-color: rgb(134, 134, 134);
+  }
