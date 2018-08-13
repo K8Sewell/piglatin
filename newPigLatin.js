@@ -1,6 +1,7 @@
-// PIG LATIN TRANSLATOR by Kait, Enrique, and Mary
+// PIG LATIN TRANSLATOR
 
-var userText = "You can now translate anything you want into pig latin! Amazing squealing xylophones."
+// pass a string that requires all rules of the program to be applied.
+var userText = "The quick brown fox jumped over the lazy dog. Squealing xylophones!"
 
 // -------------------------------------------------------------- MINOR SUB FUNCTIONS
 // split a paragraph so individual words are array items
@@ -29,19 +30,24 @@ function checkCap(char) {
 // function that takes a word as an array, looks for an index to splice that array
 // and is passed an array that is either empty or containing punctuation
 function pigLatin(lettersArr, spliceIndex, punctuation) {
-    var spliceAt = lettersArr.splice(spliceIndex)
+    // splice the word depending on where the first vowel occurs in the word
+    // lettersArr now contains just the consonants, and spliced contains the rest
+    var spliced = lettersArr.splice(spliceIndex)
+    console.log(lettersArr, spliced);
     if(punctuation.length > 0) {
         lettersArr.push("a", "y", punctuation)
     } else {
         lettersArr.push("a", "y")
     }
-    piggy1 = spliceAt.join("")
+    piggy1 = spliced.join("")
     piggy2 = lettersArr.join("")
-    if(checkCap(lettersArr[0]) && !checkVowel(lettersArr[0])) {
-        lettersArr[0] = lettersArr[0].toLowerCase()
-        piggy2 = lettersArr.join("")
-        newCap = piggy1.charAt(0).toUpperCase()
-        piggyCap = newCap + piggy1.slice(1)
+    console.log(piggy1, piggy2);
+    if(checkCap(lettersArr[0]) && !checkVowel(lettersArr[0])) { // "The" is now [T, h, + "a", "y"] and [e]
+        lettersArr[0] = lettersArr[0].toLowerCase() // T, h, a, y  => t, h, a, y
+        piggy2 = lettersArr.join("") // thay
+        newCap = piggy1.charAt(0).toUpperCase() // e => E
+        piggyCap = newCap + piggy1.slice(1) // E + thay
+        console.log(piggyCap, piggy2);
         return pigified = `${piggyCap}-${piggy2}`
     } else {
         return pigified = `${piggy1}-${piggy2}`
@@ -61,7 +67,7 @@ function pigify(w) {
         // .push is an accessor, so the punctuation has to be popped off the original letters array
         letters.pop()
     }
-    // console.log(punc);
+    console.log(punc);
 
     // words that start with "q" and "sq"
     if(w.charAt(1) === "q") {
@@ -79,8 +85,10 @@ function pigify(w) {
 
     // words that start with a vowel
     if(checkVowel(w.charAt(0)) && punc.length > 0) {
+        console.log(`${letters.join("")}-way` + punc);
         return pigified = `${letters.join("")}-way` + punc
     } else if(checkVowel(w.charAt(0))) {
+        console.log(`${letters.join("")}-way`);
         return pigified = `${letters.join("")}-way`
     }
 
@@ -98,14 +106,13 @@ function translate(text, splitterFunc) {
     var wordsArray = splitterFunc(text)
     console.log(":::SPLIT PARAGRAPH:::", wordsArray)
     console.log(":::LOOP THOUGH WORDS:::")
-    console.log(":::SPLIT WORDS:::")
+    console.log(":::SPLIT WORDS & APPLY RULES:::")
     var pigLatinArr = []
     for(let i = 0; i < wordsArray.length; i++){
         var word = wordsArray[i]
         pigify(word)
         pigLatinArr.push(pigified)
     }
-    console.log(":::APPLY PIG LATIN RULES:::")
     console.log(":::CONCAT & JOIN BACK INTO STRING:::")
     return pigLatin = pigLatinArr.join(" ")
 }
