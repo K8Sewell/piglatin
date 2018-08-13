@@ -2,22 +2,26 @@
 
 var userText = "Something to turn into pig latin."
 
+translate(userText, splitter, isolateWord){
+
+}
+
 //higher function that splits text, pigify which also checks checkVowels
-function translate (text, splitterFunc, isoWordfunc) {
-  var splitText = splitterFunc(text)
-  var piggy = isoWordfunc(splitText)
-  console.log(splitText)
-  console.log(piggy)
+function translate(text, splitterFunc, isoWordfunc) {
+    var splitText = splitterFunc(text)
+    var piggy = isoWordfunc(splitText)
+    console.log(splitText)
+    console.log(piggy)
 }
 
 //split every space so individual words are arrays
-function splitter (str) {
-  return str.split(" ")
-  console.log(splitText)
+function splitter(paragraph) {
+    console.log(splitText)
+    isolateWord(paragraph.split(" "))
 }
 
 //create a loop that takes you through the lenght of the arrays
-function isolateWord (arr) {
+function isolateWord(arr) {
   for (let i = 0; i < arr.length; i++){
     var isoWord = arr[i]
     pigify(isoWord, checkVowel)
@@ -81,7 +85,7 @@ function vowelChecker(char) {
 
 function wordLoop(arr) {
    for(let i = 0; i < arr.length; i++) {
-       piggy(arr[i])
+        piggy(arr[i])
    }
 }
 
@@ -89,18 +93,21 @@ function piggy(word) {
    var wordStr = word.split('')
    // console.log(wordStr)
    for(let i = 0; i < wordStr.length; i++) {
-       if ( vowelChecker(word.charAt(0)) ) {
+       // if word begins with vowel
+       if( vowelChecker(word.charAt(0)) ) {
            //run the rule for a word that starts w a vowel
            // console.log(`${word}-way`)
            return `${word}-way`
-       } else {
-           for(let i = 0; i < wordStr.length; i++) {
-               if( vowelChecker(wordStr[i]) ) {
-                   var spliceIndex = i-1
-               }
+        } else {
+            // word begins with consonant
+            for(let i = 0; i < wordStr.length; i++) {
+                // look for next vowel
+                if( vowelChecker(wordStr[i]) ) {
+                    var spliceIndex = i-1
+                }
            }
            var spliced = wordStr.splice(spliceIndex)
-       }
+        }
    }
    // console.log(wordStr.push('a', 'y'))
    // console.log(wordStr)
