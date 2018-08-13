@@ -33,38 +33,33 @@ body {
        "footer"
     }
 
-    #pigImage {
-        height: 800px;
-    }
-
     #butcherPig {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
         max-width: 100%;
         height: auto;
+        padding-top: 25px;
     }
   
       @media only screen and (min-width: 500px)  {
-      .wrapper {
-          grid-template-columns: 40% auto;
-          grid-template-areas:
-            "header   header"
-            "sidebar  content"
-            "footer   footer";
-      }
+	      .wrapper {
+	      	  grid-gap: 1em;
+	          grid-template-columns: repeat(3, 1fr);
+	          grid-template-areas:
+	            "header   header header"
+	            "sidebar  content content"
+	            "footer   footer footer";
+	          grid-auto-rows: minmax(150px; auto);
+	      }
       }
   
       @media only screen and (min-width: 600px)   {
           .wrapper {
-        grid-gap: 20px;
-              grid-template-columns: 40% auto;
+        	  grid-gap: 1em;
+              grid-template-columns: repeat(3, 1fr);
               grid-template-areas:
-        "header  header"
-              "sidebar content"
-              "footer  footer";
+        		"header  header header"
+                "sidebar  content content"
+                "footer   footer footer"
+              grid-auto-row: minmax(150px; auto);
               max-width: 1400px;
           }
       }
@@ -79,6 +74,7 @@ body {
   
 .header {
     background-color: #FFF;
+    padding:4em;
   }
   
   
