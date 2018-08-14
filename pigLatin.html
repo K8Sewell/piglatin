@@ -1,49 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Pig Latin Translator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="pigLatin.css">
-    <script src="pigLatin.js"></script> 
-</head>
-    <body>
-        <div class="wrapper">
-            <header class="box header">
-            <div id="pigImage">
-            <img src='https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400' alt="pig with butcher cut names in pig latin" id="butcherPig">
-            </div>
-            </header>
-            <sidebar class="box sidebar">
-            <div>
-                <form name="myForm">
-                Turn your sentence into Pig Latin<br><br><input type="text" id="uText" required><br>
-                <input type="submit" value="Pigify" onclick="translate(userText, splitter)">
-                </form>
-            </div>
-            </sidebar>
-            <div class="text-center box content">
-                <p id="output"></p>
-                <script>
-                    document.write("hello")
-                    
-                    // function grabPigLatin() {
-                    //     var x, output;
-                    //     x = document.getElementById("uText").value;
-                    //     if (!isNaN("uText")) {
-                    //         output = "Please enter a word or phrase. Number and symbol Pig Latin requires a smarter pig."
-                    //     } else {
-                    //         output = translate(userText, splitter)
-                    //     }
-                    //     output = document.getElementById("output").innerHTML
-                    // }
-                </script>
-            </div>
-            </main>
-            <footer class="box footer">
-            <div class="text-center">
-                <p>Coded by Mary, Enrique and Kait</p>
-            </div>  
-            </footer>
-        </div>
-    </body>     
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="piglatin.css">
+  </head>
+  <body>
+    <header>
+     <img src='https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400' alt="" width="290">
+    </header>
+    <main>
+     <div>
+       <form name="myForm" action="/action_page.php" onsubmit="return pigLatin()" method="post">
+         Turn your sentence into Pig Latin<br><input type="text" name="words"><br>
+         <input type="submit" value="Pigify">
+       </form>
+     </div>
+    </main>
+    <aside>
+     <div>
+     <p id="plfied"></p>
+     </div>
+     <div class="text-center">
+       <script>
+       document.writeln("Ellohay orldway! Avehay away icenay ayday!");
+       </script>
+     </div>
+    </aside>
+    <footer>
+     <p>Coded by Mary, Enrique & Kait</p>
+    </footer>
+  <link rel="text/js" href="piglatin.js">
+  </body>
+
 </html>
