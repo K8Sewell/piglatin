@@ -1,7 +1,7 @@
 // PIG LATIN TRANSLATOR
 
 // pass a string that requires all rules of the program to be applied.
-var userText = "The quick brown fox jumped over the lazy dog. Squealing xylophones!"
+// var userText = "The quick brown fox jumped over the lazy dog. Squealing xylophones!"
 
 // -------------------------------------------------------------- MINOR SUB FUNCTIONS
 // split a paragraph so individual words are array items
@@ -119,8 +119,15 @@ function translate(text, splitterFunc) {
 
 //console.log(translate(userText, splitter))
 
+// ------------------------------------------------------------- DOM FUNCTION
+
 function grabPigLatin() {
-    var x, output;
-    x = document.getElementById("uText").value;
-    output = document.getElementById("outputed").innerHTML = translate(x, splitter)
+    // store uText value as variable x
+    let x = document.getElementById("uText").value
+    // pass uText (x) to translate which calls splitter
+    let output = translate(x, splitter)
+    // translate() returns translated pigLatin string as var output
+    // return manipulates the DOM with the variable output
+    // output is now transferred inside HMTL tags <p id="outputed"></p>
+    return document.getElementById("outputed").innerHTML = output
 }
