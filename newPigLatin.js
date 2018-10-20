@@ -54,6 +54,7 @@ function pigLatin(lettersArr, spliceIndex, punctuation) {
     }
 }
 
+
 // loop that will check all words in the array and applies the rules of pig latin
 function pigify(w) {
     // split each word into an array of letters
@@ -91,6 +92,7 @@ function pigify(w) {
 //        console.log(`${letters.join("")}-way`);
         return pigified = `${letters.join("")}-way`
     }
+
 
     // if a word starts with a consonant or consonants, find the first occurance of a vowel in the word
     // use that index to splice the word into two separate arrays.
@@ -132,9 +134,11 @@ function grabPigLatin() {
     return document.getElementById("outputed").innerHTML = output
 }
 
+
 // Refresh the page and clear the input field
 
 function refreshField() {
     history.go(0)
     return document.getElementById("uText").value = ""
 }
+
