@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="piglatin.css">
-    <link rel="text/js" href="piglatin.js">
-  </head>
-  <body>
-    <header>
-     <img src='https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400' alt="" width="290">
-    </header>
-    <main>
-     <div>
-       <form name="myForm" action="/action_page.php" onsubmit="return pigLatin()" method="post">
-         Turn your sentence into Pig Latin<br><input type="text" name="words"><br>
-         <input type="submit" value="Pigify">
-       </form>
-     </div>
-    </main>
-    <aside>
-     <div>
-     <p id="plfied"></p>
-     </div>
-     <div class="text-center">
-       <script>
-       document.writeln("Hello World! Have a nice day!");
-       </script>
-     </div>
-    </aside>
-    <footer>
-     <p>Coded by Mary, Enrique & Kait</p>
-    </footer>
-  </body>
 
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Pig Latin Translator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="pigLatin.css">
+    <script src="newPigLatin.js"></script>
+</head>
+    <body>
+        <div class="wrapper">
+            <header class="box header">
+            <div id="pigImage">
+            <img src='https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400' alt="pig with butcher cut names in pig latin" id="butcherPig">
+            </div>
+            </header>
+            <sidebar class="box sidebar">
+            <div>
+                <h1 class="info">Turn your sentence into Pig Latin</h1>
+                <br>
+                <input type="text" id="uText">
+                <br>
+                <button type="submit" value="Pigify" onclick="grabPigLatin()" class="button">Pigify</button>
+                <button onclick="refreshField()" class="button">Enter New Phrase</button>
+            </div>
+            </sidebar>
+            <div class="text-center box content">
+                <p id="outputed">"Ello-hay, Orld-way!"</p>
+            </div>
+            </main>
+            <footer class="box footer">
+            <div class="text-center">
+                <p>Coded by <a href="https://github.com/msanagu" class="link">Mary San Agustin</a>, <a href="https://www.linkedin.com/in/enriqueverduzco/" class="link">Enrique Verduzco</a>, and <a href="https://github.com/K8Sewell" class="link">Kait Sewell</a>.</p>
+            </div>
+            </footer>
+        </div>
+    </body>
 </html>
