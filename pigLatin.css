@@ -1,39 +1,101 @@
 body {
- display: grid;
- grid-template-columns: 75% 25%;
- grid-template-rows: 10vw 30vw 10vw;
- grid-gap: 1em;
+    margin: 40px;
+  }
+  
+  .sidebar {
+          grid-area: sidebar;
+      }
+  
+      .content {
+          grid-area: content;
+      }
+  
+      .header {
+          grid-area: header;
+      }
+  
+      .footer {
+          grid-area: footer;
+      }
+  
+      .wrapper {
+          background-color: #fff;
+          color: #444;
+      }
+  
+    .wrapper {
+      display: grid;
+      grid-gap: 1em;
+      grid-template-areas:
+       "header"
+       "sidebar"
+       "content"
+       "footer"
+    }
+
+    #butcherPig {
+        max-width: 100%;
+        height: auto;
+        padding-top: 25px;
+    }
+  
+      @media only screen and (min-width: 500px)  {
+	      .wrapper {
+	      	  grid-gap: 1em;
+	          grid-template-columns: repeat(3, 1fr);
+	          grid-template-areas:
+	            "header   header header"
+	            "sidebar  content content"
+	            "footer   footer footer";
+	          grid-auto-rows: minmax(150px; auto);
+	      }
+      }
+  
+      @media only screen and (min-width: 600px)   {
+          .wrapper {
+        	  grid-gap: 1em;
+              grid-template-columns: repeat(3, 1fr);
+              grid-template-areas:
+        		"header  header header"
+                "sidebar  content content"
+                "footer   footer footer"
+              grid-auto-row: minmax(150px; auto);
+              max-width: 1400px;
+          }
+      }
+      
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 150%; 
+  }
+  
+.header {
+    background-color: #FFF;
+    padding:4em;
+  }
+  
+  
+.footer {
+    background-color: rgb(134, 134, 134);
+  }
+
+.button{
+    margin-top: 1rem;
+    margin-right: 1rem;
 }
 
-header,
-footer {
- grid-column: 1 / span 2;
+.info{
+    font-size: 100%;
 }
 
-img {
-  margin:10px;
-}
-body {
- margin: 0 auto;
- max-width: 56em;
- padding: 1em 0;
+.link{
+    color: #FFF;
+    text-decoration: underline;
 }
 
-header {
- background: #FFF;
- display: flex;
- align-items: center;
- justify-content: center;
- margin:10px;
- padding:10px;
-}
-
-
-main,
-aside,
-footer {
- background: #eaeaea;
- display: flex;
- align-items: center;
- justify-content: center;
+.link:hover{
+    color: #444;
 }
